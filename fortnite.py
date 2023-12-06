@@ -58,6 +58,8 @@ def trigCalc():
       print("\n\n")
       if(counter != problemCount):
         print("NEXT PROBLEM SET\n\n")
+        #print ("\033[A                             \033[A")
+
       else:
         print("Back to main menu!")
     trigAnswers()
@@ -69,7 +71,42 @@ def trigCalc():
 def quadSolver():
   balls = "balls"
   print(balls)
-
+  quadrant = int(input("Enter specified quadrant: "))
+  num_dom = []
+  ratio = input("Enter any pair for numer and denom X, Y, R\n(seperate with proper spacing and comma): ").lower()
+  """x, y"""
+  numerator = ratio[:1]
+  denominator = ratio[-1:]
+  
+  if(numerator == "r" or denominator == "r"):
+    if(quadrant == 1):
+      answer = "pos"
+    if(quadrant == 2):
+      if(numerator == "x" or demoninator == "x"):
+        answer = "neg"
+      else:
+        answer = "pos"
+    if(quadrant == 3):
+      answer = "neg"
+    if(quadrant == 4):
+      if(numerator == "y" or demoninator == "y"):
+        answer = "neg"
+      else:
+        answer = "pos"
+  else:
+    if(quadrant == 1):
+      answer = "pos"
+    if(quadrant == 2):
+      answer = "neg"
+    if(quadrant == 3):
+      answer = "pos"
+    if(quadrant == 4):
+      answer = "neg"
+  print(f"\n\nThe ratio is {answer}!\n\n")
+  start()
+  main()
+    
+    
 def main():
   if(mode == 1):
     trigCalc()
